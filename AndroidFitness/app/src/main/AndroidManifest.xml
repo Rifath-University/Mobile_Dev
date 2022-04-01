@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.androidfitness2">
+    package="com.example.androidfitness">
 
     <application
         android:allowBackup="true"
@@ -10,11 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidFitness2">
         <activity
-            android:name=".UpdateActivity_Steps"
+            android:name="com.example.androidfitness.UpdateActivity_Steps"
             android:exported="false"
-            android:parentActivityName=".Activity_Steps"/>
+            android:parentActivityName="com.example.androidfitness.Activity_Steps"/>
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.androidfitness.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,15 +23,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AddActivity_Steps"
+            android:name="com.example.androidfitness.AddActivity_Steps"
             android:exported="false"
             android:label="Add Steps to recycler view"
-            android:parentActivityName=".Activity_Steps" />
+            android:parentActivityName="com.example.androidfitness.Activity_Steps" />
         <activity
-            android:name=".Activity_Steps"
+            android:name="com.example.androidfitness.Activity_Steps"
             android:exported="false"
             android:label="Steps"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName="com.example.androidfitness.MainActivity" />
     </application>
 
 </manifest>

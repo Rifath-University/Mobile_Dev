@@ -1,4 +1,4 @@
-package com.example.androidfitness2;
+package com.example.androidfitness;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
