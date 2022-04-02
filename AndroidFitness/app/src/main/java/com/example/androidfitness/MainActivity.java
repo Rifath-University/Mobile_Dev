@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void buttonToStepsActivity(View view) {
-        Intent toStepsActivity = new Intent(MainActivity.this, Activity_Steps.class);
+        Intent toStepsActivity = new Intent(MainActivity.this, Steps_Activity.class);
         startActivity(toStepsActivity);
     }
 }

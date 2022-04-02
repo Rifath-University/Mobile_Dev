@@ -7,9 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class AddActivity_Steps extends AppCompatActivity {
+public class Steps_AddActivity extends AppCompatActivity {
 
-    EditText title_input, author_input, pages_input;
+    EditText date_input, steps_input, calories_input;
     Button steps_add_button;
 
     @Override
@@ -17,17 +17,17 @@ public class AddActivity_Steps extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_steps_add_form);
 
-        title_input = findViewById(R.id.title_input);
-        author_input = findViewById(R.id.author_input);
-        pages_input = findViewById(R.id.pages_input);
+        date_input = findViewById(R.id.date_input);
+        steps_input = findViewById(R.id.steps_input);
+        calories_input = findViewById(R.id.calories_input);
         steps_add_button = findViewById(R.id.save_steps_button);
         steps_add_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MyDatabaseHelper_Steps stepsDB = new MyDatabaseHelper_Steps(AddActivity_Steps.this);
-                stepsDB.addBook(title_input.getText().toString().trim(),
-                                author_input.getText().toString().trim(),
-                                Integer.valueOf(pages_input.getText().toString().trim()));
+                Steps_MyDatabaseHelper stepsDB = new Steps_MyDatabaseHelper(Steps_AddActivity.this);
+                stepsDB.addBook(date_input.getText().toString().trim(),
+                                Integer.valueOf(steps_input.getText().toString().trim()),
+                                Integer.valueOf(calories_input.getText().toString().trim()));
             }
         });
 

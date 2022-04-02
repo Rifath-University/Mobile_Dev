@@ -20,13 +20,13 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-public class Activity_Steps extends AppCompatActivity {
+public class Steps_Activity extends AppCompatActivity {
 
     RecyclerView recyclerView_steps;
     FloatingActionButton steps_add_button_to_recycler;
-    MyDatabaseHelper_Steps stepsDB;
-    ArrayList<String> book_id, book_title, book_author, book_pages;
-    CustomAdapter_Steps customAdapter_steps;
+    Steps_MyDatabaseHelper stepsDB;
+    ArrayList<String> steps_id, steps_date, steps_daily, steps_calories;
+    Steps_CustomAdapter _stepsCustomAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,21 +37,21 @@ public class Activity_Steps extends AppCompatActivity {
         steps_add_button_to_recycler.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent addStepsActivityIntent = new Intent(Activity_Steps.this, AddActivity_Steps.class);
+                Intent addStepsActivityIntent = new Intent(Steps_Activity.this, Steps_AddActivity.class);
                 startActivity(addStepsActivityIntent);
             }
         });
 
-        stepsDB = new MyDatabaseHelper_Steps(Activity_Steps.this);
-        book_id = new ArrayList<>();
-        book_title = new ArrayList<>();
-        book_author = new ArrayList<>();
-        book_pages = new ArrayList<>();
+        stepsDB = new Steps_MyDatabaseHelper(Steps_Activity.this);
+        steps_id = new ArrayList<>();
+        steps_date = new ArrayList<>();
+        steps_daily = new ArrayList<>();
+        steps_calories = new ArrayList<>();
 
         storeDataInArrays();
-        customAdapter_steps = new CustomAdapter_Steps(Activity_Steps.this,this , book_id, book_title, book_author, book_pages);
-        recyclerView_steps.setAdapter(customAdapter_steps);
-        recyclerView_steps.setLayoutManager(new LinearLayoutManager(Activity_Steps.this));
+        _stepsCustomAdapter = new Steps_CustomAdapter(Steps_Activity.this,this , steps_id, steps_date, steps_daily, steps_calories);
+        recyclerView_steps.setAdapter(_stepsCustomAdapter);
+        recyclerView_steps.setLayoutManager(new LinearLayoutManager(Steps_Activity.this));
     }
 
     @Override
@@ -68,10 +68,10 @@ public class Activity_Steps extends AppCompatActivity {
             Toast.makeText(this, "No data", Toast.LENGTH_SHORT).show();
         } else {
             while (cursor_steps.moveToNext()) {
-                book_id.add(cursor_steps.getString(0));
-                book_title.add(cursor_steps.getString(1));
-                book_author.add(cursor_steps.getString(2));
-                book_pages.add(cursor_steps.getString(3));
+                steps_id.add(cursor_steps.getString(0));
+                steps_date.add(cursor_steps.getString(1));
+                steps_daily.add(cursor_steps.getString(2));
+                steps_calories.add(cursor_steps.getString(3));
             }
         }
     }
@@ -98,9 +98,9 @@ public class Activity_Steps extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                MyDatabaseHelper_Steps allStepsDB = new MyDatabaseHelper_Steps(Activity_Steps.this);
+                Steps_MyDatabaseHelper allStepsDB = new Steps_MyDatabaseHelper(Steps_Activity.this);
                 allStepsDB.deleteAllStepsData();
-                Intent deleteAll = new Intent(Activity_Steps.this, Activity_Steps.class);
+                Intent deleteAll = new Intent(Steps_Activity.this, Steps_Activity.class);
                 startActivity(deleteAll);
                 finish();
             }
