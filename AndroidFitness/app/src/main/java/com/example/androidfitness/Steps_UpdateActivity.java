@@ -13,35 +13,35 @@ import android.widget.Toast;
 
 public class Steps_UpdateActivity extends AppCompatActivity {
 
-    EditText title_input_update, author_input_update, pages_input_update;
+    EditText date_input_update, steps_input_update, calories_input_update;
     Button update_button, delete_button;
-    String id, title, author, pages;
+    String id, date, daily_steps, calories;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_steps_update);
 
-        title_input_update = findViewById(R.id.title_input_update);
-        author_input_update = findViewById(R.id.author_input_update);
-        pages_input_update = findViewById(R.id.pages_input_update);
+        date_input_update = findViewById(R.id.date_input_update);
+        steps_input_update = findViewById(R.id.steps_input_update);
+        calories_input_update = findViewById(R.id.calories_input_update);
         update_button = findViewById(R.id.update_steps_button);
         delete_button = findViewById(R.id.delete_steps_button);
         getAndSetStepIntentData();
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setTitle(title);
+            actionBar.setTitle(date);
         }
 
         update_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Steps_MyDatabaseHelper updateSteps = new Steps_MyDatabaseHelper(Steps_UpdateActivity.this);
-                title = title_input_update.getText().toString().trim();
-                author = author_input_update.getText().toString().trim();
-                pages = pages_input_update.getText().toString().trim();
-                updateSteps.updateStepsData(id, title, author, pages);
+                date = date_input_update.getText().toString().trim();
+                daily_steps = steps_input_update.getText().toString().trim();
+                calories = calories_input_update.getText().toString().trim();
+                updateSteps.updateStepsData(id, date, daily_steps, calories);
             }
         });
 
@@ -54,18 +54,18 @@ public class Steps_UpdateActivity extends AppCompatActivity {
     }
 
     void getAndSetStepIntentData() {
-        if (getIntent().hasExtra("id") && getIntent().hasExtra("title") &&
-            getIntent().hasExtra("author") && getIntent().hasExtra("pages")) {
+        if (getIntent().hasExtra("id") && getIntent().hasExtra("date") &&
+            getIntent().hasExtra("daily_steps") && getIntent().hasExtra("calories")) {
             //Getting data from intent
             id = getIntent().getStringExtra("id");
-            title = getIntent().getStringExtra("title");
-            author = getIntent().getStringExtra("author");
-            pages = getIntent().getStringExtra("pages");
+            date = getIntent().getStringExtra("date");
+            daily_steps = getIntent().getStringExtra("daily_steps");
+            calories = getIntent().getStringExtra("calories");
 
             // Setting intent data
-            title_input_update.setText(title);
-            author_input_update.setText(author);
-            pages_input_update.setText(pages);
+            date_input_update.setText(date);
+            steps_input_update.setText(daily_steps);
+            calories_input_update.setText(calories);
 
         } else {
             Toast.makeText(this, "No Data", Toast.LENGTH_SHORT).show();
@@ -74,7 +74,7 @@ public class Steps_UpdateActivity extends AppCompatActivity {
 
     void confirmDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Delete " + title + " ?");
+        builder.setTitle("Delete " + date + " ?");
         builder.setMessage("Are you sure you want to delete this data?");
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override

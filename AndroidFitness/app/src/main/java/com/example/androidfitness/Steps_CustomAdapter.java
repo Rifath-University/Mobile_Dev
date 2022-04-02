@@ -19,17 +19,17 @@ public class Steps_CustomAdapter extends RecyclerView.Adapter<Steps_CustomAdapte
 
     Context context;
     Activity activity_steps;
-    ArrayList book_id, book_title, book_author, book_pages;
+    ArrayList steps_id, steps_date, steps_daily, steps_calories;
 
 
-    Steps_CustomAdapter(Context context, Activity activity, ArrayList book_id,
-                        ArrayList book_title, ArrayList book_author, ArrayList book_pages) {
+    Steps_CustomAdapter(Context context, Activity activity, ArrayList steps_id,
+                        ArrayList steps_date, ArrayList steps_daily, ArrayList steps_calories) {
         this.context = context;
         this.activity_steps = activity;
-        this.book_id = book_id;
-        this.book_title = book_title;
-        this.book_author = book_author;
-        this.book_pages = book_pages;
+        this.steps_id = steps_id;
+        this.steps_date = steps_date;
+        this.steps_daily = steps_daily;
+        this.steps_calories = steps_calories;
     }
 
     @NonNull
@@ -43,19 +43,19 @@ public class Steps_CustomAdapter extends RecyclerView.Adapter<Steps_CustomAdapte
     @Override
     public void onBindViewHolder(@NonNull StepsViewHolder holder, @SuppressLint("RecyclerView") final int position) {
 
-        holder.book_id_text.setText(String.valueOf(book_id.get(position)));
-        holder.book_title_text.setText(String.valueOf(book_title.get(position)));
-        holder.book_author_text.setText(String.valueOf(book_author.get(position)));
-        holder.book_pages_text.setText(String.valueOf(book_pages.get(position)));
+        holder.steps_id_text.setText(String.valueOf(steps_id.get(position)));
+        holder.steps_date_text.setText(String.valueOf(steps_date.get(position)));
+        holder.steps_daily_text.setText(String.valueOf(steps_daily.get(position)));
+        holder.steps_calories_text.setText(String.valueOf(steps_calories.get(position)));
         holder.stepsMainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int requestCode = 1;
                 Intent updateIntentActivity = new Intent(context, Steps_UpdateActivity.class);
-                updateIntentActivity.putExtra("id", String.valueOf(book_id.get(position)));
-                updateIntentActivity.putExtra("title", String.valueOf(book_title.get(position)));
-                updateIntentActivity.putExtra("author", String.valueOf(book_author.get(position)));
-                updateIntentActivity.putExtra("pages", String.valueOf(book_pages.get(position)));
+                updateIntentActivity.putExtra("id", String.valueOf(steps_id.get(position)));
+                updateIntentActivity.putExtra("date", String.valueOf(steps_date.get(position)));
+                updateIntentActivity.putExtra("daily_steps", String.valueOf(steps_daily.get(position)));
+                updateIntentActivity.putExtra("calories", String.valueOf(steps_calories.get(position)));
                 activity_steps.startActivityForResult(updateIntentActivity, requestCode);
             }
         });
@@ -63,20 +63,20 @@ public class Steps_CustomAdapter extends RecyclerView.Adapter<Steps_CustomAdapte
 
     @Override
     public int getItemCount() {
-        return book_id.size();
+        return steps_id.size();
     }
 
     public class StepsViewHolder extends RecyclerView.ViewHolder {
 
-        TextView book_id_text, book_title_text, book_author_text, book_pages_text;
+        TextView steps_id_text, steps_date_text, steps_daily_text, steps_calories_text;
         LinearLayout stepsMainLayout;
 
         public StepsViewHolder(@NonNull View itemView) {
             super(itemView);
-            book_id_text = itemView.findViewById(R.id.book_id_text);
-            book_title_text = itemView.findViewById(R.id.book_title_text);
-            book_author_text = itemView.findViewById(R.id.book_author_text);
-            book_pages_text = itemView.findViewById(R.id.book_pages_text);
+            steps_id_text = itemView.findViewById(R.id.steps_id_text);
+            steps_date_text = itemView.findViewById(R.id.steps_date_text);
+            steps_daily_text = itemView.findViewById(R.id.steps_daily_text);
+            steps_calories_text = itemView.findViewById(R.id.steps_calories_text);
             stepsMainLayout = itemView.findViewById(R.id.stepsMainLayout);
         }
     }

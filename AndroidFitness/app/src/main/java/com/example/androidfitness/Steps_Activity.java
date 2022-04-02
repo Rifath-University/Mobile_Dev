@@ -25,7 +25,7 @@ public class Steps_Activity extends AppCompatActivity {
     RecyclerView recyclerView_steps;
     FloatingActionButton steps_add_button_to_recycler;
     Steps_MyDatabaseHelper stepsDB;
-    ArrayList<String> book_id, book_title, book_author, book_pages;
+    ArrayList<String> steps_id, steps_date, steps_daily, steps_calories;
     Steps_CustomAdapter _stepsCustomAdapter;
 
     @Override
@@ -43,13 +43,13 @@ public class Steps_Activity extends AppCompatActivity {
         });
 
         stepsDB = new Steps_MyDatabaseHelper(Steps_Activity.this);
-        book_id = new ArrayList<>();
-        book_title = new ArrayList<>();
-        book_author = new ArrayList<>();
-        book_pages = new ArrayList<>();
+        steps_id = new ArrayList<>();
+        steps_date = new ArrayList<>();
+        steps_daily = new ArrayList<>();
+        steps_calories = new ArrayList<>();
 
         storeDataInArrays();
-        _stepsCustomAdapter = new Steps_CustomAdapter(Steps_Activity.this,this , book_id, book_title, book_author, book_pages);
+        _stepsCustomAdapter = new Steps_CustomAdapter(Steps_Activity.this,this , steps_id, steps_date, steps_daily, steps_calories);
         recyclerView_steps.setAdapter(_stepsCustomAdapter);
         recyclerView_steps.setLayoutManager(new LinearLayoutManager(Steps_Activity.this));
     }
@@ -68,10 +68,10 @@ public class Steps_Activity extends AppCompatActivity {
             Toast.makeText(this, "No data", Toast.LENGTH_SHORT).show();
         } else {
             while (cursor_steps.moveToNext()) {
-                book_id.add(cursor_steps.getString(0));
-                book_title.add(cursor_steps.getString(1));
-                book_author.add(cursor_steps.getString(2));
-                book_pages.add(cursor_steps.getString(3));
+                steps_id.add(cursor_steps.getString(0));
+                steps_date.add(cursor_steps.getString(1));
+                steps_daily.add(cursor_steps.getString(2));
+                steps_calories.add(cursor_steps.getString(3));
             }
         }
     }

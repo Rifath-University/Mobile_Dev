@@ -19,7 +19,7 @@
             android:padding="12dp">
 
             <TextView
-                android:id="@+id/book_id_text"
+                android:id="@+id/steps_id_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1"
@@ -31,33 +31,54 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/book_title_text"
+                android:id="@+id/steps_date_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:text="Title 1"
+                android:layout_marginStart="40dp"
+                android:layout_marginBottom="24dp"
+                android:text="Date"
                 android:textColor="#000"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/book_id_text"
-                app:layout_constraintTop_toTopOf="@+id/book_id_text" />
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/steps_id_text"
+                app:layout_constraintStart_toEndOf="@+id/steps_id_text"
+                app:layout_constraintTop_toTopOf="@+id/steps_id_text"
+                app:layout_constraintVertical_bias="0.517" />
 
             <TextView
-                android:id="@+id/book_author_text"
+                android:id="@+id/steps_daily_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Author 1"
-                app:layout_constraintStart_toStartOf="@+id/book_title_text"
-                app:layout_constraintTop_toBottomOf="@+id/book_title_text" />
+                android:layout_marginStart="32dp"
+                android:text="Steps"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/steps_date_text"
+                app:layout_constraintStart_toEndOf="@+id/steps_date_text" />
 
             <TextView
-                android:id="@+id/book_pages_text"
+                android:id="@+id/steps_calories_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
                 android:text="120"
                 android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintBottom_toBottomOf="@+id/steps_daily_text"
+                app:layout_constraintStart_toEndOf="@+id/steps_daily_text" />
+
+            <TextView
+                android:id="@+id/steps_Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Steps"
+                app:layout_constraintStart_toStartOf="@+id/steps_daily_text"
+                app:layout_constraintTop_toBottomOf="@+id/steps_daily_text" />
+
+            <TextView
+                android:id="@+id/calories_Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Calories"
+                app:layout_constraintStart_toStartOf="@+id/steps_calories_text"
+                app:layout_constraintTop_toBottomOf="@+id/steps_calories_text" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
