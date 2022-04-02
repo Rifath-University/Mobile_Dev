@@ -3,6 +3,8 @@ package com.example.androidfitness;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -46,8 +48,7 @@ public class UpdateActivity_Steps extends AppCompatActivity {
         delete_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MyDatabaseHelper_Steps deleteStepsRow = new MyDatabaseHelper_Steps(UpdateActivity_Steps.this);
-                deleteStepsRow.deleteRowSteps(id);
+                confirmDialog();
             }
         });
     }
@@ -71,7 +72,24 @@ public class UpdateActivity_Steps extends AppCompatActivity {
         }
     }
 
-//    void confirmDialog() {
-//        AlertDialog.Builder builder
-//    }
+    void confirmDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Delete " + title + " ?");
+        builder.setMessage("Are you sure you want to delete this data?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                MyDatabaseHelper_Steps deleteStepsRow = new MyDatabaseHelper_Steps(UpdateActivity_Steps.this);
+                deleteStepsRow.deleteRowSteps(id);
+                finish();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        builder.create().show();
+    }
 }
