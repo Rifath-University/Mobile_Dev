@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class UpdateActivity_Steps extends AppCompatActivity {
+public class Steps_UpdateActivity extends AppCompatActivity {
 
     EditText title_input_update, author_input_update, pages_input_update;
     Button update_button, delete_button;
@@ -37,7 +37,7 @@ public class UpdateActivity_Steps extends AppCompatActivity {
         update_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MyDatabaseHelper_Steps updateSteps = new MyDatabaseHelper_Steps(UpdateActivity_Steps.this);
+                Steps_MyDatabaseHelper updateSteps = new Steps_MyDatabaseHelper(Steps_UpdateActivity.this);
                 title = title_input_update.getText().toString().trim();
                 author = author_input_update.getText().toString().trim();
                 pages = pages_input_update.getText().toString().trim();
@@ -79,7 +79,7 @@ public class UpdateActivity_Steps extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                MyDatabaseHelper_Steps deleteStepsRow = new MyDatabaseHelper_Steps(UpdateActivity_Steps.this);
+                Steps_MyDatabaseHelper deleteStepsRow = new Steps_MyDatabaseHelper(Steps_UpdateActivity.this);
                 deleteStepsRow.deleteRowSteps(id);
                 finish();
             }

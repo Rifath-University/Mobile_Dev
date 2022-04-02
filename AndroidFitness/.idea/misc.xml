@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/layout/activity_steps_recyclerview_row.xml" value="0.23007246376811594" />
         <entry key="app/src/main/res/menu/my_menu_steps.xml" value="0.37604166666666666" />
       </map>
     </option>

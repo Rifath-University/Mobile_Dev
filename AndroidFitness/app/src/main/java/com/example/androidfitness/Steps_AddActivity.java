@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class AddActivity_Steps extends AppCompatActivity {
+public class Steps_AddActivity extends AppCompatActivity {
 
     EditText title_input, author_input, pages_input;
     Button steps_add_button;
@@ -24,7 +24,7 @@ public class AddActivity_Steps extends AppCompatActivity {
         steps_add_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MyDatabaseHelper_Steps stepsDB = new MyDatabaseHelper_Steps(AddActivity_Steps.this);
+                Steps_MyDatabaseHelper stepsDB = new Steps_MyDatabaseHelper(Steps_AddActivity.this);
                 stepsDB.addBook(title_input.getText().toString().trim(),
                                 author_input.getText().toString().trim(),
                                 Integer.valueOf(pages_input.getText().toString().trim()));

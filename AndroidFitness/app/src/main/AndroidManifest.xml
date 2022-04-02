@@ -10,9 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidFitness2">
         <activity
-            android:name="com.example.androidfitness.UpdateActivity_Steps"
+            android:name="com.example.androidfitness.Steps_UpdateActivity"
             android:exported="false"
-            android:parentActivityName="com.example.androidfitness.Activity_Steps"/>
+            android:parentActivityName="com.example.androidfitness.Steps_Activity"/>
         <activity
             android:name="com.example.androidfitness.MainActivity"
             android:exported="true">
@@ -23,12 +23,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.androidfitness.AddActivity_Steps"
+            android:name="com.example.androidfitness.Steps_AddActivity"
             android:exported="false"
             android:label="Add Steps to recycler view"
-            android:parentActivityName="com.example.androidfitness.Activity_Steps" />
+            android:parentActivityName="com.example.androidfitness.Steps_Activity" />
         <activity
-            android:name="com.example.androidfitness.Activity_Steps"
+            android:name="com.example.androidfitness.Steps_Activity"
             android:exported="false"
             android:label="Steps"
             android:parentActivityName="com.example.androidfitness.MainActivity" />

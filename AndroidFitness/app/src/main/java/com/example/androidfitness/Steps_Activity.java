@@ -20,13 +20,13 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-public class Activity_Steps extends AppCompatActivity {
+public class Steps_Activity extends AppCompatActivity {
 
     RecyclerView recyclerView_steps;
     FloatingActionButton steps_add_button_to_recycler;
-    MyDatabaseHelper_Steps stepsDB;
+    Steps_MyDatabaseHelper stepsDB;
     ArrayList<String> book_id, book_title, book_author, book_pages;
-    CustomAdapter_Steps customAdapter_steps;
+    Steps_CustomAdapter _stepsCustomAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,21 +37,21 @@ public class Activity_Steps extends AppCompatActivity {
         steps_add_button_to_recycler.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent addStepsActivityIntent = new Intent(Activity_Steps.this, AddActivity_Steps.class);
+                Intent addStepsActivityIntent = new Intent(Steps_Activity.this, Steps_AddActivity.class);
                 startActivity(addStepsActivityIntent);
             }
         });
 
-        stepsDB = new MyDatabaseHelper_Steps(Activity_Steps.this);
+        stepsDB = new Steps_MyDatabaseHelper(Steps_Activity.this);
         book_id = new ArrayList<>();
         book_title = new ArrayList<>();
         book_author = new ArrayList<>();
         book_pages = new ArrayList<>();
 
         storeDataInArrays();
-        customAdapter_steps = new CustomAdapter_Steps(Activity_Steps.this,this , book_id, book_title, book_author, book_pages);
-        recyclerView_steps.setAdapter(customAdapter_steps);
-        recyclerView_steps.setLayoutManager(new LinearLayoutManager(Activity_Steps.this));
+        _stepsCustomAdapter = new Steps_CustomAdapter(Steps_Activity.this,this , book_id, book_title, book_author, book_pages);
+        recyclerView_steps.setAdapter(_stepsCustomAdapter);
+        recyclerView_steps.setLayoutManager(new LinearLayoutManager(Steps_Activity.this));
     }
 
     @Override
@@ -98,9 +98,9 @@ public class Activity_Steps extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                MyDatabaseHelper_Steps allStepsDB = new MyDatabaseHelper_Steps(Activity_Steps.this);
+                Steps_MyDatabaseHelper allStepsDB = new Steps_MyDatabaseHelper(Steps_Activity.this);
                 allStepsDB.deleteAllStepsData();
-                Intent deleteAll = new Intent(Activity_Steps.this, Activity_Steps.class);
+                Intent deleteAll = new Intent(Steps_Activity.this, Steps_Activity.class);
                 startActivity(deleteAll);
                 finish();
             }

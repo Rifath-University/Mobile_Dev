@@ -15,14 +15,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class CustomAdapter_Steps extends RecyclerView.Adapter<CustomAdapter_Steps.StepsViewHolder> {
+public class Steps_CustomAdapter extends RecyclerView.Adapter<Steps_CustomAdapter.StepsViewHolder> {
 
     Context context;
     Activity activity_steps;
     ArrayList book_id, book_title, book_author, book_pages;
 
 
-    CustomAdapter_Steps(Context context, Activity activity, ArrayList book_id,
+    Steps_CustomAdapter(Context context, Activity activity, ArrayList book_id,
                         ArrayList book_title, ArrayList book_author, ArrayList book_pages) {
         this.context = context;
         this.activity_steps = activity;
@@ -34,7 +34,7 @@ public class CustomAdapter_Steps extends RecyclerView.Adapter<CustomAdapter_Step
 
     @NonNull
     @Override
-    public CustomAdapter_Steps.StepsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public Steps_CustomAdapter.StepsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater stepsInflater = LayoutInflater.from(context);
         View stepsView = stepsInflater.inflate(R.layout.activity_steps_recyclerview_row, parent, false);
         return new StepsViewHolder(stepsView);
@@ -51,7 +51,7 @@ public class CustomAdapter_Steps extends RecyclerView.Adapter<CustomAdapter_Step
             @Override
             public void onClick(View view) {
                 int requestCode = 1;
-                Intent updateIntentActivity = new Intent(context, UpdateActivity_Steps.class);
+                Intent updateIntentActivity = new Intent(context, Steps_UpdateActivity.class);
                 updateIntentActivity.putExtra("id", String.valueOf(book_id.get(position)));
                 updateIntentActivity.putExtra("title", String.valueOf(book_title.get(position)));
                 updateIntentActivity.putExtra("author", String.valueOf(book_author.get(position)));
