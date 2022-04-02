@@ -93,4 +93,9 @@ public class MyDatabaseHelper_Steps extends SQLiteOpenHelper {
             Toast.makeText(context, "Successfully Deleted", Toast.LENGTH_SHORT).show();
         }
     }
+
+    void deleteAllStepsData() {
+        SQLiteDatabase deleteAllStepsDB = this.getWritableDatabase();
+        deleteAllStepsDB.execSQL("DELETE FROM " + TABLE_NAME);
+    }
 }
