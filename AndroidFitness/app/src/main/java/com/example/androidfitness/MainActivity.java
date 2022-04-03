@@ -18,4 +18,10 @@ public class MainActivity extends AppCompatActivity {
         Intent toStepsActivity = new Intent(MainActivity.this, Steps_Activity.class);
         startActivity(toStepsActivity);
     }
+
+
+    public void buttonToMacroActivity(View view) {
+        Intent toMacroActivity = new Intent(MainActivity.this, Macronutrients_Activity.class);
+        startActivity(toMacroActivity);
+    }
 }

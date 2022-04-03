@@ -10,11 +10,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidFitness2">
         <activity
-            android:name="com.example.androidfitness.Steps_UpdateActivity"
+            android:name=".Macronutrients_UpdateActivity"
             android:exported="false"
-            android:parentActivityName="com.example.androidfitness.Steps_Activity"/>
+            android:label="Update data"
+            android:parentActivityName=".Macronutrients_Activity"/>
         <activity
-            android:name="com.example.androidfitness.MainActivity"
+            android:name=".Macronutrients_AddActivity"
+            android:exported="false"
+            android:label="Add Macro Data"
+            android:parentActivityName=".Macronutrients_Activity" />
+        <activity
+            android:name=".Macronutrients_Activity"
+            android:exported="false"
+            android:label="Macronutrient"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Steps_UpdateActivity"
+            android:exported="false"
+            android:parentActivityName=".Steps_Activity" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,15 +38,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.androidfitness.Steps_AddActivity"
+            android:name=".Steps_AddActivity"
             android:exported="false"
             android:label="Add Steps to recycler view"
-            android:parentActivityName="com.example.androidfitness.Steps_Activity" />
+            android:parentActivityName=".Steps_Activity" />
         <activity
-            android:name="com.example.androidfitness.Steps_Activity"
+            android:name=".Steps_Activity"
             android:exported="false"
             android:label="Steps"
-            android:parentActivityName="com.example.androidfitness.MainActivity" />
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>
