@@ -79,7 +79,7 @@ public class Steps_Activity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu (Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.my_menu_steps, menu);
+        inflater.inflate(R.menu.my_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
