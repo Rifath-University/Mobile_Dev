@@ -89,8 +89,8 @@ public class Macronutrients_UpdateActivity extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Steps_MyDatabaseHelper deleteStepsRow = new Steps_MyDatabaseHelper(Macronutrients_UpdateActivity.this);
-                deleteStepsRow.deleteRowSteps(id);
+                Macronutrients_MyDatabaseHelper deleteMacroRow = new Macronutrients_MyDatabaseHelper(Macronutrients_UpdateActivity.this);
+                deleteMacroRow.deleteRowMacro(id);
                 finish();
             }
         });

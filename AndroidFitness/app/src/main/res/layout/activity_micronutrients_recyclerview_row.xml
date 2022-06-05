@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/microMainLayout">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/microConstraintLayout"
+            android:padding="12dp">
+
+            <TextView
+                android:id="@+id/micro_id_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textSize="40sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/vitB_lbl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="6dp"
+                android:text="Vit B "
+                app:layout_constraintStart_toEndOf="@+id/micro_id_text"
+                app:layout_constraintTop_toTopOf="@+id/micro_id_text" />
+
+            <TextView
+                android:id="@+id/vitB_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="13dp"
+                android:layout_marginBottom="6dp"
+                android:text="0"
+                app:layout_constraintBottom_toBottomOf="@+id/micro_id_text"
+                app:layout_constraintStart_toEndOf="@+id/micro_id_text" />
+
+            <TextView
+                android:id="@+id/vitC_lbl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="13dp"
+                android:text="Vit C"
+                app:layout_constraintStart_toEndOf="@+id/vitB_lbl"
+                app:layout_constraintTop_toTopOf="@+id/vitB_lbl" />
+
+            <TextView
+                android:id="@+id/vitC_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                app:layout_constraintBottom_toBottomOf="@+id/vitB_data"
+                app:layout_constraintStart_toStartOf="@+id/vitC_lbl" />
+
+            <TextView
+                android:id="@+id/vitE_lbl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="13dp"
+                android:text="Vit E"
+                app:layout_constraintStart_toEndOf="@+id/vitC_lbl"
+                app:layout_constraintTop_toTopOf="@+id/vitC_lbl" />
+
+            <TextView
+                android:id="@+id/vitE_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                app:layout_constraintBottom_toBottomOf="@+id/vitC_data"
+                app:layout_constraintStart_toStartOf="@+id/vitE_lbl" />
+
+            <TextView
+                android:id="@+id/magnesium_lbl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="13dp"
+                android:text="Magnesium"
+                app:layout_constraintStart_toEndOf="@+id/vitE_lbl"
+                app:layout_constraintTop_toTopOf="@+id/vitE_lbl" />
+
+            <TextView
+                android:id="@+id/magnesium_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                app:layout_constraintBottom_toBottomOf="@+id/vitE_data"
+                app:layout_constraintStart_toStartOf="@+id/magnesium_lbl" />
+
+            <TextView
+                android:id="@+id/zinc_lbl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="13dp"
+                android:text="Zinc"
+                app:layout_constraintStart_toEndOf="@+id/magnesium_lbl"
+                app:layout_constraintTop_toTopOf="@+id/magnesium_lbl" />
+
+            <TextView
+                android:id="@+id/zinc_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                app:layout_constraintBottom_toBottomOf="@+id/magnesium_data"
+                app:layout_constraintStart_toStartOf="@+id/zinc_lbl" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
