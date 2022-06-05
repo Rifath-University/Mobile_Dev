@@ -24,4 +24,10 @@ public class MainActivity extends AppCompatActivity {
         Intent toMacroActivity = new Intent(MainActivity.this, Macronutrients_Activity.class);
         startActivity(toMacroActivity);
     }
+
+
+    public void buttonToMicroActivity(View view) {
+        Intent toMicroActivity = new Intent(MainActivity.this, Micronutrients_Activity.class);
+        startActivity(toMicroActivity);
+    }
 }

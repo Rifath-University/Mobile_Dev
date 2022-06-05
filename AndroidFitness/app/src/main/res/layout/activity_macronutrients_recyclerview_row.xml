@@ -52,7 +52,7 @@
                 android:id="@+id/fat_lbl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="16dp"
                 android:text="Fat"
                 app:layout_constraintStart_toEndOf="@+id/protein_lbl"
                 app:layout_constraintTop_toTopOf="@+id/protein_lbl" />
@@ -69,7 +69,7 @@
                 android:id="@+id/carbs_lbl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="16dp"
                 android:text="Carbs"
                 app:layout_constraintStart_toEndOf="@+id/fat_lbl"
                 app:layout_constraintTop_toTopOf="@+id/fat_lbl" />
@@ -86,7 +86,7 @@
                 android:id="@+id/fibre_lbl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="16dp"
                 android:text="Fibre"
                 app:layout_constraintStart_toEndOf="@+id/carbs_lbl"
                 app:layout_constraintTop_toTopOf="@+id/carbs_lbl" />
@@ -103,7 +103,7 @@
                 android:id="@+id/salt_lbl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="16dp"
                 android:text="Salt"
                 app:layout_constraintStart_toEndOf="@+id/fibre_lbl"
                 app:layout_constraintTop_toTopOf="@+id/fibre_lbl" />

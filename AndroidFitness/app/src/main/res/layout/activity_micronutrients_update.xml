@@ -4,76 +4,85 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Macronutrients_AddActivity">
-
+    tools:context=".Micronutrients_UpdateActivity">
 
     <EditText
-        android:id="@+id/protein_input"
+        android:id="@+id/vitB_update"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:ems="10"
-        android:hint="Enter Protein (g)"
+        android:hint="Update Vit B"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/fat_input"
+        android:id="@+id/vitC_update"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Enter Fat (g)"
+        android:hint="Update Vit C"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/protein_input" />
+        app:layout_constraintTop_toBottomOf="@+id/vitB_update" />
 
     <EditText
-        android:id="@+id/carbs_input"
+        android:id="@+id/vitE_update"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Enter Carbohydrates (g)"
+        android:hint="Update Vit E"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fat_input" />
+        app:layout_constraintTop_toBottomOf="@+id/vitC_update" />
 
     <EditText
-        android:id="@+id/fibre_input"
+        android:id="@+id/magnesium_update"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Enter Fibre (g)"
+        android:hint="Update Magnesium"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carbs_input" />
+        app:layout_constraintTop_toBottomOf="@+id/vitE_update" />
 
     <EditText
-        android:id="@+id/salt_input"
+        android:id="@+id/zinc_update"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Enter Salt (g)"
+        android:hint="Update Zinc"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fibre_input" />
+        app:layout_constraintTop_toBottomOf="@+id/magnesium_update" />
 
     <Button
-        android:id="@+id/macronutrients_add_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/update_micro_btn"
+        android:layout_width="213dp"
+        android:layout_height="49dp"
         android:layout_marginTop="24dp"
-        android:text="ADD"
+        android:text="UPDATE"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/salt_input" />
+        app:layout_constraintTop_toBottomOf="@+id/zinc_update" />
+
+    <Button
+        android:id="@+id/delete_micro_btn"
+        android:layout_width="213dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="24dp"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/update_micro_btn" />
 </androidx.constraintlayout.widget.ConstraintLayout>

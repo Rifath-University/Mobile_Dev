@@ -10,10 +10,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidFitness2">
         <activity
+            android:name=".Micronutrients_UpdateActivity"
+            android:exported="false"
+            android:label="Update Vitamins"
+            android:parentActivityName=".Micronutrients_Activity"/>
+        <activity
+            android:name=".Micronutrients_AddActivity"
+            android:exported="false"
+            android:label="Add Vitamins"
+            android:parentActivityName=".Micronutrients_Activity"/>
+        <activity
+            android:name=".Micronutrients_Activity"
+            android:exported="false"
+            android:label="Micronutrients"
+            android:parentActivityName=".MainActivity"/>
+        <activity
             android:name=".Macronutrients_UpdateActivity"
             android:exported="false"
             android:label="Update data"
-            android:parentActivityName=".Macronutrients_Activity"/>
+            android:parentActivityName=".Macronutrients_Activity" />
         <activity
             android:name=".Macronutrients_AddActivity"
             android:exported="false"

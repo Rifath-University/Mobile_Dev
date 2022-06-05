@@ -4,76 +4,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Macronutrients_AddActivity">
-
+    tools:context=".Micronutrients_AddActivity">
 
     <EditText
-        android:id="@+id/protein_input"
+        android:id="@+id/vitB_input_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:ems="10"
-        android:hint="Enter Protein (g)"
+        android:hint="Enter Vitamin B"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/fat_input"
+        android:id="@+id/vitC_input_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Enter Fat (g)"
+        android:hint="Enter Vitamin C"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/protein_input" />
+        app:layout_constraintTop_toBottomOf="@+id/vitB_input_add" />
 
     <EditText
-        android:id="@+id/carbs_input"
+        android:id="@+id/vitE_input_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Enter Carbohydrates (g)"
+        android:hint="Enter Vitamin E"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fat_input" />
+        app:layout_constraintTop_toBottomOf="@+id/vitC_input_add" />
 
     <EditText
-        android:id="@+id/fibre_input"
+        android:id="@+id/vitMag_input_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Enter Fibre (g)"
+        android:hint="Enter Magnesium "
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carbs_input" />
+        app:layout_constraintTop_toBottomOf="@+id/vitE_input_add" />
 
     <EditText
-        android:id="@+id/salt_input"
+        android:id="@+id/vitZinc_input_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Enter Salt (g)"
+        android:hint="Enter Zinc"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fibre_input" />
+        app:layout_constraintTop_toBottomOf="@+id/vitMag_input_add" />
 
     <Button
-        android:id="@+id/macronutrients_add_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:id="@+id/save_micro_button"
+        android:layout_width="213dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="32dp"
         android:text="ADD"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/salt_input" />
+        app:layout_constraintTop_toBottomOf="@+id/vitZinc_input_add" />
 </androidx.constraintlayout.widget.ConstraintLayout>
