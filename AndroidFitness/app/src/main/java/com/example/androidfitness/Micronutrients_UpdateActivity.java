@@ -61,11 +61,11 @@ public class Micronutrients_UpdateActivity extends AppCompatActivity {
     }
 
     void getAndSetMicroIntentData() {
-        if (getIntent().hasExtra("id") && getIntent().hasExtra("vitB") &&
-                getIntent().hasExtra("vitC") && getIntent().hasExtra("VitE")
+        if (getIntent().hasExtra("micro_id") && getIntent().hasExtra("vitB") &&
+                getIntent().hasExtra("vitC") && getIntent().hasExtra("vitE")
                 && getIntent().hasExtra("magnesium") && getIntent().hasExtra("zinc")) {
             //Getting data from intent
-            vit_id = getIntent().getStringExtra("id");
+            vit_id = getIntent().getStringExtra("micro_id");
             vitB = getIntent().getStringExtra("vitB");
             vitC = getIntent().getStringExtra("vitC");
             vitE = getIntent().getStringExtra("vitE");

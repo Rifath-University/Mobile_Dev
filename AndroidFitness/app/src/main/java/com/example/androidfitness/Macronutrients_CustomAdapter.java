@@ -73,11 +73,11 @@ public class Macronutrients_CustomAdapter extends RecyclerView.Adapter<Macronutr
                 int requestCode = 1;
                 Intent updateIntentActivity = new Intent(context, Macronutrients_UpdateActivity.class);
                 updateIntentActivity.putExtra("id", String.valueOf(macro_id.get(position)));
-                updateIntentActivity.putExtra("proteins", String.valueOf(macro_protein.get(position)));
-                updateIntentActivity.putExtra("fats", String.valueOf(macro_fat.get(position)));
+                updateIntentActivity.putExtra("protein", String.valueOf(macro_protein.get(position)));
+                updateIntentActivity.putExtra("fat", String.valueOf(macro_fat.get(position)));
                 updateIntentActivity.putExtra("carbs", String.valueOf(macro_carbs.get(position)));
-                updateIntentActivity.putExtra("fibres", String.valueOf(macro_fibre.get(position)));
-                updateIntentActivity.putExtra("salts", String.valueOf(macro_salt.get(position)));
+                updateIntentActivity.putExtra("fibre", String.valueOf(macro_fibre.get(position)));
+                updateIntentActivity.putExtra("salt", String.valueOf(macro_salt.get(position)));
 
                 activity_macronutrients.startActivityForResult(updateIntentActivity, requestCode);
             }
