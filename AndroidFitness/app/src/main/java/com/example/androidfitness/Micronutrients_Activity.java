@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class Micronutrients_Activity extends AppCompatActivity {
 
     RecyclerView recyclerView_micro;
-    FloatingActionButton micro_add_button_to_recycler;
+    FloatingActionButton micro_add_button_to_recycler, MicroInfoButton;
     Micronutrients_MyDatabaseHelper microDB;
     ArrayList<String> micro_id, vit_b, vit_c, vit_e, magnesium, zinc;
     Micronutrients_CustomAdapter _micronutrients_customAdapter;
@@ -40,6 +40,14 @@ public class Micronutrients_Activity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent addMicroActivityIntent = new Intent(Micronutrients_Activity.this, Micronutrients_AddActivity.class);
                 startActivity(addMicroActivityIntent);
+            }
+        });
+
+        MicroInfoButton = findViewById(R.id.MicroInfoButton);
+        MicroInfoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                microOpenDialog();
             }
         });
 
@@ -63,6 +71,11 @@ public class Micronutrients_Activity extends AppCompatActivity {
         if (requestCode == 1) {
             recreate();
         }
+    }
+
+    public void microOpenDialog() {
+        MicroInfoDialog MicroDialog = new MicroInfoDialog();
+        MicroDialog.show(getSupportFragmentManager(), "Micronutrients Information");
     }
 
     void storeDataInArrays() {

@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class Macronutrients_Activity extends AppCompatActivity {
 
     RecyclerView recyclerView_Macronutrients;
-    FloatingActionButton macronutrients_Add_Data_To_List;
+    FloatingActionButton macronutrients_Add_Data_To_List, MacroInfoButton;
     Macronutrients_MyDatabaseHelper macroDB;
     ArrayList<String> macro_id, macro_protein, macro_fat, macro_carbs, macro_fibre, macro_salt;
     Macronutrients_CustomAdapter macroCustomAdapter;
@@ -40,6 +40,14 @@ public class Macronutrients_Activity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent macroAddForm = new Intent(Macronutrients_Activity.this, Macronutrients_AddActivity.class);
                 startActivity(macroAddForm);
+            }
+        });
+
+        MacroInfoButton = findViewById(R.id.MacroInfoButton);
+        MacroInfoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                macroOpenDialog();
             }
         });
 
@@ -63,6 +71,11 @@ public class Macronutrients_Activity extends AppCompatActivity {
         if (requestCode == 1) {
             recreate();
         }
+    }
+
+    public void macroOpenDialog() {
+        MacroInfoDialog MacroDialog = new MacroInfoDialog();
+        MacroDialog.show(getSupportFragmentManager(),"Macronutrients Information");
     }
 
     void storeDataInArrays() {
