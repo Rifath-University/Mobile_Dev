@@ -17,7 +17,7 @@ public class Steps_AddActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_steps_add_form);
 
-        double stepsToCalories = 0.004;
+
         date_input = findViewById(R.id.date_input);
         steps_input = findViewById(R.id.steps_input);
         calories_input = findViewById(R.id.calories_input);

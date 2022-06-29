@@ -15,7 +15,7 @@ public class Micronutrients_AddActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_micronutrients_add);
+        setContentView(R.layout.activity_micronutrients_add_form);
 
         vit_b = findViewById(R.id.vitB_input_add);
         vit_c = findViewById(R.id.vitC_input_add);
