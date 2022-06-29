@@ -14,9 +14,8 @@
         android:onClick="buttonToMapActivity"
         android:text="MAP"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/micro_Btn"
+        app:layout_constraintTop_toBottomOf="@+id/sleep_Btn"
         tools:ignore="OnClick" />
 
     <Button
@@ -55,6 +54,18 @@
         app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/macroBtn"
+        tools:ignore="OnClick" />
+
+    <Button
+        android:id="@+id/sleep_Btn"
+        android:layout_width="348dp"
+        android:layout_height="108dp"
+        android:layout_marginTop="16dp"
+        android:onClick="buttonToSleepActivity"
+        android:text="SLEEP"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/micro_Btn"
         tools:ignore="OnClick" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

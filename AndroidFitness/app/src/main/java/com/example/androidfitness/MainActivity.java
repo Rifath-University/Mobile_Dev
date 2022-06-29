@@ -30,4 +30,10 @@ public class MainActivity extends AppCompatActivity {
         Intent toMicroActivity = new Intent(MainActivity.this, Micronutrients_Activity.class);
         startActivity(toMicroActivity);
     }
+
+
+    public void buttonToSleepActivity(View view) {
+        Intent toSleepActivity = new Intent (MainActivity.this, Sleep_Activity.class);
+        startActivity(toSleepActivity);
+    }
 }
