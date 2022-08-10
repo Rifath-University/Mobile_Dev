@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.androidfitness">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,21 +13,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidFitness2">
         <activity
+            android:name=".Locations_Activity"
+            android:exported="false" />
+        <activity
             android:name=".Sleep_UpdateActivity"
             android:exported="false"
             android:label="Update Sleep"
-            android:parentActivityName=".Sleep_Activity"/>
+            android:parentActivityName=".Sleep_Activity" />
         <activity
             android:name=".Sleep_AddActivity"
             android:exported="false"
             android:label="Add Sleep"
-            android:parentActivityName=".Sleep_Activity"
-            />
+            android:parentActivityName=".Sleep_Activity" />
         <activity
             android:name=".Sleep_Activity"
             android:exported="false"
             android:label="Sleep"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".Micronutrients_UpdateActivity"
             android:exported="false"

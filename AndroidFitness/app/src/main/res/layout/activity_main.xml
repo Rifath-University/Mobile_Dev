@@ -7,65 +7,64 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/map_Btn"
-        android:layout_width="348dp"
-        android:layout_height="108dp"
-        android:layout_marginTop="16dp"
-        android:onClick="buttonToMapActivity"
-        android:text="MAP"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sleep_Btn"
-        tools:ignore="OnClick" />
-
-    <Button
         android:id="@+id/steps"
         android:layout_width="348dp"
         android:layout_height="108dp"
         android:layout_marginTop="24dp"
         android:onClick="buttonToStepsActivity"
-        android:text="STEPS"
+        android:text="@string/stepsActivity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="OnClick" />
+        tools:ignore="OnClick,UsingOnClickInXml" />
 
     <Button
         android:id="@+id/macroBtn"
         android:layout_width="348dp"
         android:layout_height="108dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:onClick="buttonToMacroActivity"
-        android:text="MACRONUTRIENTS"
+        android:text="@string/macronutrientsActivity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/steps"
-        tools:ignore="OnClick" />
+        tools:ignore="OnClick,UsingOnClickInXml" />
 
     <Button
         android:id="@+id/micro_Btn"
         android:layout_width="348dp"
         android:layout_height="108dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:onClick="buttonToMicroActivity"
-        android:text="MICRONUTRIENTS"
+        android:text="@string/micronutrientsActivity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/macroBtn"
-        tools:ignore="OnClick" />
+        tools:ignore="OnClick,UsingOnClickInXml" />
 
     <Button
         android:id="@+id/sleep_Btn"
         android:layout_width="348dp"
         android:layout_height="108dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:onClick="buttonToSleepActivity"
-        android:text="SLEEP"
+        android:text="@string/sleepActivity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/micro_Btn"
-        tools:ignore="OnClick" />
+        tools:ignore="OnClick,UsingOnClickInXml" />
+
+    <Button
+        android:id="@+id/locationBtn"
+        android:layout_width="344dp"
+        android:layout_height="101dp"
+        android:layout_marginTop="8dp"
+        android:text="Location"
+        android:onClick="buttonToLocation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sleep_Btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -36,4 +36,9 @@ public class MainActivity extends AppCompatActivity {
         Intent toSleepActivity = new Intent (MainActivity.this, Sleep_Activity.class);
         startActivity(toSleepActivity);
     }
+
+    public void buttonToLocation(View view) {
+        Intent toLocationActivity = new Intent(MainActivity.this, Locations_Activity.class);
+        startActivity(toLocationActivity);
+    }
 }
