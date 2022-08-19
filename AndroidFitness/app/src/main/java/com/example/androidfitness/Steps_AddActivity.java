@@ -26,7 +26,7 @@ public class Steps_AddActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Steps_MyDatabaseHelper stepsDB = new Steps_MyDatabaseHelper(Steps_AddActivity.this);
-                stepsDB.addBook(date_input.getText().toString().trim(),
+                stepsDB.addSteps(date_input.getText().toString().trim(),
                                 Integer.valueOf(steps_input.getText().toString().trim()),
                                 Integer.valueOf(calories_input.getText().toString().trim()));
 

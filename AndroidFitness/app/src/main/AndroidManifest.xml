@@ -14,7 +14,9 @@
         android:theme="@style/Theme.AndroidFitness2">
         <activity
             android:name=".Locations_Activity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Locations"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".Sleep_UpdateActivity"
             android:exported="false"
@@ -76,7 +78,7 @@
         <activity
             android:name=".Steps_AddActivity"
             android:exported="false"
-            android:label="Add Steps to recycler view"
+            android:label="Add Steps and Calories"
             android:parentActivityName=".Steps_Activity" />
         <activity
             android:name=".Steps_Activity"

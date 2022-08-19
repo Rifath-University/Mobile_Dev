@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.androidfitness.businessLogic.StepsBusinessLogic;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -24,9 +25,9 @@ public class Steps_Activity extends AppCompatActivity {
 
     RecyclerView recyclerView_steps;
     FloatingActionButton steps_add_button_to_recycler;
-    Steps_MyDatabaseHelper stepsDB;
     ArrayList<String> steps_id, steps_date, steps_daily, steps_calories;
     Steps_CustomAdapter _stepsCustomAdapter;
+    private StepsBusinessLogic stepsBusinessLogic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +43,7 @@ public class Steps_Activity extends AppCompatActivity {
             }
         });
 
-        stepsDB = new Steps_MyDatabaseHelper(Steps_Activity.this);
+        stepsBusinessLogic = new StepsBusinessLogic(Steps_Activity.this);
         steps_id = new ArrayList<>();
         steps_date = new ArrayList<>();
         steps_daily = new ArrayList<>();
@@ -63,7 +64,7 @@ public class Steps_Activity extends AppCompatActivity {
     }
 
     void storeDataInArrays() {
-        Cursor cursor_steps = stepsDB.stepsReadAllData();
+        Cursor cursor_steps = stepsBusinessLogic.stepsReadAllData();
         if (cursor_steps.getCount() == 0) {
             Toast.makeText(this, "No data", Toast.LENGTH_SHORT).show();
         } else {
@@ -91,25 +92,22 @@ public class Steps_Activity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    void confirmDialog() {
+    private void confirmDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Delete All?");
         builder.setMessage("Are you sure you want to delete all the data?");
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Steps_MyDatabaseHelper allStepsDB = new Steps_MyDatabaseHelper(Steps_Activity.this);
-                allStepsDB.deleteAllStepsData();
-                Intent deleteAll = new Intent(Steps_Activity.this, Steps_Activity.class);
-                startActivity(deleteAll);
+                stepsBusinessLogic.deleteAllSteps();
+                Intent backToStepsActivity = new Intent(Steps_Activity.this, Steps_Activity.class);
+                startActivity(backToStepsActivity);
                 finish();
             }
         });
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-            }
+            public void onClick(DialogInterface dialog, int which) { }
         });
         builder.create().show();
     }

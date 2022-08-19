@@ -119,6 +119,8 @@ public class Locations_Activity extends AppCompatActivity implements
             }
         });
 
+
+
         // Initialize the location callbacks.
         mLocationCallback = new LocationCallback() {
             /**

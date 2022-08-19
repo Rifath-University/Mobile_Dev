@@ -21,7 +21,7 @@ public class Steps_MyDatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_STEPS = "steps";
     private static final String COLUMN_CALORIES = "calories";
 
-    Steps_MyDatabaseHelper(@Nullable Context context) {
+    public Steps_MyDatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
     }
@@ -42,7 +42,7 @@ public class Steps_MyDatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
     
-    void addBook(String date, int steps, int calories) {
+    public void addSteps(String date, int steps, int calories) {
         SQLiteDatabase steps_db = this.getWritableDatabase();
         ContentValues steps_cv = new ContentValues();
         
@@ -57,7 +57,7 @@ public class Steps_MyDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    Cursor stepsReadAllData() {
+    public Cursor stepsReadAllData() {
         String query = "SELECT * FROM " + TABLE_NAME;
         SQLiteDatabase stepsDB = this.getReadableDatabase();
 
@@ -68,7 +68,7 @@ public class Steps_MyDatabaseHelper extends SQLiteOpenHelper {
         return stepsCursor;
     }
 
-    void updateStepsData(String row_id, String date, String steps, String calories) {
+    public void updateStepsData(String row_id, String date, String steps, String calories) {
         SQLiteDatabase updateStepsDB = this.getWritableDatabase();
         ContentValues stepsCV = new ContentValues();
         stepsCV.put(COLUMN_DATE, date);
@@ -84,7 +84,7 @@ public class Steps_MyDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    void deleteRowSteps(String row_id) {
+    public void deleteRowSteps(String row_id) {
         SQLiteDatabase deleteStepsDB = this.getWritableDatabase();
         long deleteResult = deleteStepsDB.delete(TABLE_NAME, "_id=?", new String[]{row_id});
         if (deleteResult == -1) {
@@ -94,7 +94,7 @@ public class Steps_MyDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    void deleteAllStepsData() {
+    public void deleteAllStepsData() {
         SQLiteDatabase deleteAllStepsDB = this.getWritableDatabase();
         deleteAllStepsDB.execSQL("DELETE FROM " + TABLE_NAME);
     }
