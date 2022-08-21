@@ -81,7 +81,7 @@
         android:layout_width="213dp"
         android:layout_height="49dp"
         android:layout_marginTop="24dp"
-        android:text="Button"
+        android:text="DELETE"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/update_micro_btn" />
