@@ -25,4 +25,10 @@
     <string name="stop_tracking_location">Stop tracking location</string>
     <string name="no_place">No Place Name Found</string>
     <string name="pick_a_place">Pick a Place</string>
+    <string name="enter_protein_g">Enter Protein (g)</string>
+    <string name="enter_fat_g">Enter Fat (g)</string>
+    <string name="enter_carbohydrates_g">Enter Carbohydrates (g)</string>
+    <string name="enter_fibre_g">Enter Fibre (g)</string>
+    <string name="enter_salt_g">Enter Salt (g)</string>
+    <string name="add">ADD</string>
 </resources>

@@ -3,7 +3,7 @@ package com.example.androidfitness.logic.macronutrients;
 import android.database.Cursor;
 
 public interface MacronutrientsLogic {
-    public boolean addMacronutrients(int protein, int fat, int carbohydrates, int fibre, int salt);
+    public boolean addMacronutrients(float protein, float fat, float carbohydrates, float fibre, float salt);
 
     public Cursor macronutrientsReadAllData();
 

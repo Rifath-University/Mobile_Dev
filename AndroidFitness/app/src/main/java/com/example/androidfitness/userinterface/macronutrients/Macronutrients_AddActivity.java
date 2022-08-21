@@ -37,11 +37,11 @@ public class Macronutrients_AddActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 boolean isMacronutrientsAddedSuccess = macroLogic.addMacronutrients(
-                        Integer.valueOf(protein_input.getText().toString().trim()),
-                        Integer.valueOf(fat_input.getText().toString().trim()),
-                        Integer.valueOf(carbs_input.getText().toString().trim()),
-                        Integer.valueOf(fibre_input.getText().toString().trim()),
-                        Integer.valueOf(salt_input.getText().toString().trim()));
+                        Float.parseFloat(protein_input.getText().toString().trim()),
+                        Float.parseFloat(fat_input.getText().toString().trim()),
+                        Float.parseFloat(carbs_input.getText().toString().trim()),
+                        Float.parseFloat(fibre_input.getText().toString().trim()),
+                        Float.parseFloat(salt_input.getText().toString().trim()));
 
                 if (!isMacronutrientsAddedSuccess) {
                     Toast.makeText(Macronutrients_AddActivity.this, "Failed", Toast.LENGTH_SHORT).show();

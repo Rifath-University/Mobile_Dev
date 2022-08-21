@@ -96,13 +96,14 @@ public class Steps_UpdateActivity extends AppCompatActivity {
                     Toast.makeText(Steps_UpdateActivity.this, "Failed to delete steps", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(Steps_UpdateActivity.this, "Steps Deleted", Toast.LENGTH_SHORT).show();
+                    finish();
                 }
             }
         });
 
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which) {  }
+            public void onClick(DialogInterface dialog, int which) {}
         });
         builder.create().show();
     }

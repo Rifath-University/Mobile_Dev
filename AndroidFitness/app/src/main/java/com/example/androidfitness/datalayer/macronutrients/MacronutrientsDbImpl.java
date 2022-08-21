@@ -31,11 +31,11 @@ public class MacronutrientsDbImpl extends SQLiteOpenHelper implements Macronutri
     public void onCreate(SQLiteDatabase db) {
         String query = "CREATE TABLE " + TABLE_NAME +
                 " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COLUMN_PROTEIN + " STRING, " +
-                COLUMN_FAT + " STRING, " +
-                COLUMN_CARBOHYDRATE + " STRING, " +
-                COLUMN_FIBRE + " STRING, " +
-                COLUMN_SALT + " STRING);";
+                COLUMN_PROTEIN + " REAL, " +
+                COLUMN_FAT + " REAL, " +
+                COLUMN_CARBOHYDRATE + " REAL, " +
+                COLUMN_FIBRE + " REAL, " +
+                COLUMN_SALT + " REAL);";
         db.execSQL(query);
     }
 
@@ -45,7 +45,7 @@ public class MacronutrientsDbImpl extends SQLiteOpenHelper implements Macronutri
         onCreate(db);
     }
 
-    public boolean addMacronutrients(int protein, int fat, int carbohydrates, int fibre, int salt) {
+    public boolean addMacronutrients(float protein, float fat, float carbohydrates, float fibre, float salt) {
         SQLiteDatabase macroNutrients_db = this.getWritableDatabase();
         ContentValues macroNutrients_cv = new ContentValues();
 

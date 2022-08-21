@@ -61,6 +61,7 @@ public class Micronutrients_UpdateActivity extends AppCompatActivity {
                     Toast.makeText(Micronutrients_UpdateActivity.this, "Failed to Update", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(Micronutrients_UpdateActivity.this, "Updated Successfully", Toast.LENGTH_SHORT).show();
+                    finish();
                 }
             }
         });
