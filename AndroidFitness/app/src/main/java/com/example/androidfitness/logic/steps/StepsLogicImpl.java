@@ -5,11 +5,12 @@ import android.database.Cursor;
 
 import androidx.annotation.Nullable;
 
+import com.example.androidfitness.datalayer.steps.StepsDb;
 import com.example.androidfitness.datalayer.steps.StepsDbImpl;
 
 public class StepsLogicImpl implements StepsLogic {
 
-    private StepsDbImpl stepsDB;
+    private StepsDb stepsDB;
 
     public StepsLogicImpl(@Nullable Context context) {
         stepsDB = new StepsDbImpl(context);
