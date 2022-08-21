@@ -13,8 +13,10 @@ public class MacroInfoDialog extends AppCompatDialogFragment {
     @Override
     public Dialog onCreateDialog (Bundle savedInstanceState) {
         AlertDialog.Builder MacroDialog = new AlertDialog.Builder(getActivity());
-        MacroDialog.setTitle("Macronutrients Information")
-                .setMessage("P - Protein \nF - Fat \nC - Carbohydrates \nF - Fibre \nS - Salt")
+        MacroDialog.setTitle("Links to more information")
+                .setMessage("https://www.webmd.com/diet/what-are-macronutrients " +
+                        " \n\nhttps://www.verywellfit.com/macronutrients-2242006 " +
+                        " \n\nhttps://www.medicalnewstoday.com/articles/what-are-macronutrients ")
                 .setPositiveButton("ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int i) {

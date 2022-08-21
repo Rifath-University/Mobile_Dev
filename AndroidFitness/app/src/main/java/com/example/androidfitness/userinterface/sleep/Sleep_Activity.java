@@ -20,6 +20,7 @@ import com.example.androidfitness.R;
 import com.example.androidfitness.datalayer.sleep.SleepDbImpl;
 import com.example.androidfitness.logic.sleep.SleepLogic;
 import com.example.androidfitness.logic.sleep.SleepLogicImpl;
+import com.example.androidfitness.userinterface.micronutrients.MicroInfoDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -27,7 +28,7 @@ import java.util.ArrayList;
 public class Sleep_Activity extends AppCompatActivity {
 
     private RecyclerView recyclerView_Sleep;
-    private FloatingActionButton sleep_Add_To_List;
+    private FloatingActionButton sleep_Add_To_List, SleepInfoButton;
     private ArrayList<String> sleep_id, sleep_date, sleep_totalSleep, sleep_deepSleep;
     private Sleep_CustomAdapter _sleepCustomAdapter;
     private SleepLogic sleepLogic;
@@ -57,6 +58,19 @@ public class Sleep_Activity extends AppCompatActivity {
         _sleepCustomAdapter = new Sleep_CustomAdapter(Sleep_Activity.this,this , sleep_id, sleep_date, sleep_totalSleep, sleep_deepSleep);
         recyclerView_Sleep.setAdapter(_sleepCustomAdapter);
         recyclerView_Sleep.setLayoutManager(new LinearLayoutManager(Sleep_Activity.this));
+
+        SleepInfoButton = findViewById(R.id.SleepInfoButton);
+        SleepInfoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sleepOpenDialog();
+            }
+        });
+    }
+
+    public void sleepOpenDialog() {
+        SleepInfoDialog sleepInfoButton = new SleepInfoDialog();
+        sleepInfoButton.show(getSupportFragmentManager(), "Sleeping Information");
     }
 
     @Override
