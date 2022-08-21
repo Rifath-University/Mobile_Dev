@@ -13,61 +13,61 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidFitness2">
         <activity
-            android:name=".Locations_Activity"
+            android:name=".userinterface.Locations_Activity"
             android:exported="false"
             android:label="Locations"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".userinterface.MainActivity"/>
         <activity
-            android:name=".Sleep_UpdateActivity"
+            android:name=".userinterface.sleep.Sleep_UpdateActivity"
             android:exported="false"
             android:label="Update Sleep"
-            android:parentActivityName=".Sleep_Activity" />
+            android:parentActivityName=".userinterface.sleep.Sleep_Activity" />
         <activity
-            android:name=".Sleep_AddActivity"
+            android:name=".userinterface.sleep.Sleep_AddActivity"
             android:exported="false"
             android:label="Add Sleep"
-            android:parentActivityName=".Sleep_Activity" />
+            android:parentActivityName=".userinterface.sleep.Sleep_Activity" />
         <activity
-            android:name=".Sleep_Activity"
+            android:name=".userinterface.sleep.Sleep_Activity"
             android:exported="false"
             android:label="Sleep"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".userinterface.MainActivity" />
         <activity
-            android:name=".Micronutrients_UpdateActivity"
+            android:name=".userinterface.micronutrients.Micronutrients_UpdateActivity"
             android:exported="false"
             android:label="Update Vitamins"
-            android:parentActivityName=".Micronutrients_Activity" />
+            android:parentActivityName=".userinterface.micronutrients.Micronutrients_Activity" />
         <activity
-            android:name=".Micronutrients_AddActivity"
+            android:name=".userinterface.micronutrients.Micronutrients_AddActivity"
             android:exported="false"
             android:label="Add Vitamins"
-            android:parentActivityName=".Micronutrients_Activity" />
+            android:parentActivityName=".userinterface.micronutrients.Micronutrients_Activity" />
         <activity
-            android:name=".Micronutrients_Activity"
+            android:name=".userinterface.micronutrients.Micronutrients_Activity"
             android:exported="false"
             android:label="Micronutrients"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".userinterface.MainActivity" />
         <activity
-            android:name=".Macronutrients_UpdateActivity"
+            android:name=".userinterface.macronutrients.Macronutrients_UpdateActivity"
             android:exported="false"
             android:label="Update data"
-            android:parentActivityName=".Macronutrients_Activity" />
+            android:parentActivityName=".userinterface.macronutrients.Macronutrients_Activity" />
         <activity
-            android:name=".Macronutrients_AddActivity"
+            android:name=".userinterface.macronutrients.Macronutrients_AddActivity"
             android:exported="false"
             android:label="Add Macro Data"
-            android:parentActivityName=".Macronutrients_Activity" />
+            android:parentActivityName=".userinterface.macronutrients.Macronutrients_Activity" />
         <activity
-            android:name=".Macronutrients_Activity"
+            android:name=".userinterface.macronutrients.Macronutrients_Activity"
             android:exported="false"
             android:label="Macronutrient"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".userinterface.MainActivity" />
         <activity
-            android:name=".Steps_UpdateActivity"
+            android:name=".userinterface.steps.Steps_UpdateActivity"
             android:exported="false"
-            android:parentActivityName=".Steps_Activity" />
+            android:parentActivityName=".userinterface.steps.Steps_Activity" />
         <activity
-            android:name=".MainActivity"
+            android:name=".userinterface.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -76,15 +76,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Steps_AddActivity"
+            android:name=".userinterface.steps.Steps_AddActivity"
             android:exported="false"
             android:label="Add Steps and Calories"
-            android:parentActivityName=".Steps_Activity" />
+            android:parentActivityName=".userinterface.steps.Steps_Activity" />
         <activity
-            android:name=".Steps_Activity"
+            android:name=".userinterface.steps.Steps_Activity"
             android:exported="false"
             android:label="Steps"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".userinterface.MainActivity" />
     </application>
 
 </manifest>
