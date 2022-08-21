@@ -1,4 +1,4 @@
-package com.example.androidfitness.datalayer;
+package com.example.androidfitness.datalayer.micronutrients;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-public class Micronutrients_MyDatabaseHelper extends SQLiteOpenHelper {
+public class MicronutrientsDbImpl extends SQLiteOpenHelper implements MicronutrientsDB {
 
     private Context context;
     private static final String DATABASE_NAME = "AndroidFitnessMicronutrients.db";
@@ -23,7 +23,7 @@ public class Micronutrients_MyDatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_MAGNESIUM = "magnesium";
     private static final String COLUMN_ZINC = "zinc";
 
-    public Micronutrients_MyDatabaseHelper(@Nullable Context context) {
+    public MicronutrientsDbImpl(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
     }
@@ -46,7 +46,7 @@ public class Micronutrients_MyDatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void addMicronutrients(float vitb, float vitc, float vite, float magnesium, float zinc) {
+    public boolean addMicronutrients(float vitb, float vitc, float vite, float magnesium, float zinc) {
         SQLiteDatabase micro_db = this.getWritableDatabase();
         ContentValues micro_cv = new ContentValues();
 
@@ -56,11 +56,7 @@ public class Micronutrients_MyDatabaseHelper extends SQLiteOpenHelper {
         micro_cv.put(COLUMN_MAGNESIUM, magnesium);
         micro_cv.put(COLUMN_ZINC, zinc);
         long result = micro_db.insert(TABLE_NAME, null, micro_cv);
-        if (result == -1) {
-            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
-        }
+        return (result == -1) ? false : true;
     }
 
     public Cursor microReadAllData() {
@@ -74,7 +70,7 @@ public class Micronutrients_MyDatabaseHelper extends SQLiteOpenHelper {
         return microCursor;
     }
 
-    public void updateMicroData(String row_id, String vitb, String vitc, String vite, String magnesium, String zinc) {
+    public boolean updateMicroData(String row_id, String vitb, String vitc, String vite, String magnesium, String zinc) {
         SQLiteDatabase updateMicroDB = this.getWritableDatabase();
         ContentValues microCV = new ContentValues();
         microCV.put(COLUMN_VITB, vitb);
@@ -84,22 +80,13 @@ public class Micronutrients_MyDatabaseHelper extends SQLiteOpenHelper {
         microCV.put(COLUMN_ZINC, zinc);
 
         long updateMicroResult = updateMicroDB.update(TABLE_NAME, microCV, "_id=?", new String[]{row_id});
-        if (updateMicroResult == -1) {
-            Toast.makeText(context, "Failed to Update", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(context, "Updated Successfully", Toast.LENGTH_SHORT).show();
-
-        }
+        return (updateMicroResult == 0) ? false : true;
     }
 
-    public void deleteRowMicro(String row_id) {
+    public boolean deleteRowMicro(String row_id) {
         SQLiteDatabase deleteMicroDB = this.getWritableDatabase();
         long deleteResult = deleteMicroDB.delete(TABLE_NAME, "_id=?", new String[]{row_id});
-        if (deleteResult == -1) {
-            Toast.makeText(context, "Failed to delete", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(context, "Successfully Deleted", Toast.LENGTH_SHORT).show();
-        }
+        return (deleteResult == 0) ? false : true;
     }
 
     public void deleteAllMicroData() {

@@ -1,19 +1,23 @@
 package com.example.androidfitness.userinterface.micronutrients;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.androidfitness.R;
-import com.example.androidfitness.datalayer.Micronutrients_MyDatabaseHelper;
+import com.example.androidfitness.logic.micronutrients.MicronutrientsLogic;
+import com.example.androidfitness.logic.micronutrients.MicronutrientsLogicImpl;
 
 public class Micronutrients_AddActivity extends AppCompatActivity {
 
     private EditText vit_b, vit_c, vit_e, magnesium, zinc;
     private Button micro_add_button;
+    private MicronutrientsLogic microLogic;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,18 +30,23 @@ public class Micronutrients_AddActivity extends AppCompatActivity {
         magnesium = findViewById(R.id.vitMag_input_add);
         zinc = findViewById(R.id.vitZinc_input_add);
 
+        microLogic = new MicronutrientsLogicImpl(Micronutrients_AddActivity.this);
         micro_add_button = findViewById(R.id.save_micro_button);
         micro_add_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Micronutrients_MyDatabaseHelper microDB = new Micronutrients_MyDatabaseHelper(Micronutrients_AddActivity.this);
-                microDB.addMicronutrients(
+                boolean isMicronutrientsAddedSuccess = microLogic.addMicronutrients(
                         Float.parseFloat(vit_b.getText().toString().trim()),
                         Float.parseFloat(vit_c.getText().toString().trim()),
                         Float.parseFloat(vit_e.getText().toString().trim()),
                         Float.parseFloat(magnesium.getText().toString().trim()),
-                        Float.parseFloat(zinc.getText().toString().trim())
-                );
+                        Float.parseFloat(zinc.getText().toString().trim()));
+
+                if (!isMicronutrientsAddedSuccess) {
+                    Toast.makeText(Micronutrients_AddActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(Micronutrients_AddActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
