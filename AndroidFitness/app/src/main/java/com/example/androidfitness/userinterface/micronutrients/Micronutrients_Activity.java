@@ -17,7 +17,9 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.androidfitness.R;
-import com.example.androidfitness.datalayer.Micronutrients_MyDatabaseHelper;
+import com.example.androidfitness.datalayer.micronutrients.MicronutrientsDbImpl;
+import com.example.androidfitness.logic.micronutrients.MicronutrientsLogic;
+import com.example.androidfitness.logic.micronutrients.MicronutrientsLogicImpl;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -26,15 +28,14 @@ public class Micronutrients_Activity extends AppCompatActivity {
 
     private RecyclerView recyclerView_micro;
     private FloatingActionButton micro_add_button_to_recycler, MicroInfoButton;
-    private Micronutrients_MyDatabaseHelper microDB;
     private ArrayList<String> micro_id, vit_b, vit_c, vit_e, magnesium, zinc;
     private Micronutrients_CustomAdapter _micronutrients_customAdapter;
+    private MicronutrientsLogic microLogic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_micronutrients);
-
         recyclerView_micro = findViewById(R.id.micronutrientsRecyclerView);
         micro_add_button_to_recycler = findViewById(R.id.micronutrients_Add_Button_To_List);
         micro_add_button_to_recycler.setOnClickListener(new View.OnClickListener() {
@@ -53,7 +54,7 @@ public class Micronutrients_Activity extends AppCompatActivity {
             }
         });
 
-        microDB = new Micronutrients_MyDatabaseHelper(Micronutrients_Activity.this);
+        microLogic = new MicronutrientsLogicImpl(Micronutrients_Activity.this);
         micro_id = new ArrayList<>();
         vit_b = new ArrayList<>();
         vit_c = new ArrayList<>();
@@ -81,7 +82,7 @@ public class Micronutrients_Activity extends AppCompatActivity {
     }
 
     private void storeDataInArrays() {
-        Cursor cursor_micro = microDB.microReadAllData();
+        Cursor cursor_micro = microLogic.microReadAllData();
         if (cursor_micro.getCount() == 0) {
             Toast.makeText(this, "No data", Toast.LENGTH_SHORT).show();
         } else {
@@ -119,8 +120,7 @@ public class Micronutrients_Activity extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Micronutrients_MyDatabaseHelper allMicroDB = new Micronutrients_MyDatabaseHelper(Micronutrients_Activity.this);
-                allMicroDB.deleteAllMicroData();
+                microLogic.deleteAllMicroData();
                 Intent deleteAll = new Intent(Micronutrients_Activity.this, Micronutrients_Activity.class);
                 startActivity(deleteAll);
                 finish();

@@ -12,13 +12,17 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.androidfitness.R;
-import com.example.androidfitness.datalayer.Micronutrients_MyDatabaseHelper;
+import com.example.androidfitness.datalayer.micronutrients.MicronutrientsDbImpl;
+import com.example.androidfitness.logic.micronutrients.MicronutrientsLogic;
+import com.example.androidfitness.logic.micronutrients.MicronutrientsLogicImpl;
 
 public class Micronutrients_UpdateActivity extends AppCompatActivity {
 
     private EditText vitB_update, vitC_update, vitE_update, magnesium_update, zinc_update;
     private Button micro_update_button, micro_delete_button;
     private String vit_id, vitB, vitC, vitE, magnesium, zinc;
+    private MicronutrientsLogic microLogic;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +35,7 @@ public class Micronutrients_UpdateActivity extends AppCompatActivity {
         magnesium_update = findViewById(R.id.magnesium_update);
         zinc_update = findViewById(R.id.zinc_update);
 
+        microLogic = new MicronutrientsLogicImpl(Micronutrients_UpdateActivity.this);
         micro_update_button = findViewById(R.id.update_micro_btn);
         micro_delete_button = findViewById(R.id.delete_micro_btn);
         getAndSetMicroIntentData();
@@ -43,14 +48,20 @@ public class Micronutrients_UpdateActivity extends AppCompatActivity {
         micro_update_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Micronutrients_MyDatabaseHelper updateMicro = new Micronutrients_MyDatabaseHelper(Micronutrients_UpdateActivity.this);
+                MicronutrientsDbImpl updateMicro = new MicronutrientsDbImpl(Micronutrients_UpdateActivity.this);
                 vitB = vitB_update.getText().toString().trim();
                 vitC = vitC_update.getText().toString().trim();
                 vitE = vitE_update.getText().toString().trim();
                 magnesium = magnesium_update.getText().toString().trim();
                 zinc = zinc_update.getText().toString().trim();
 
-                updateMicro.updateMicroData(vit_id, vitB, vitC, vitE, magnesium, zinc);
+                boolean isUpdateSuccess = microLogic.updateMicroData(vit_id, vitB, vitC, vitE, magnesium, zinc);
+
+                if (!isUpdateSuccess) {
+                    Toast.makeText(Micronutrients_UpdateActivity.this, "Failed to Update", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(Micronutrients_UpdateActivity.this, "Updated Successfully", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -95,11 +106,17 @@ public class Micronutrients_UpdateActivity extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Micronutrients_MyDatabaseHelper deleteMicroRow = new Micronutrients_MyDatabaseHelper(Micronutrients_UpdateActivity.this);
-                deleteMicroRow.deleteRowMicro(vit_id);
-                finish();
+                boolean isDeleteSuccess = microLogic.deleteRowMicro(vit_id);
+
+                if (!isDeleteSuccess) {
+                    Toast.makeText(Micronutrients_UpdateActivity.this, "Failed to delete", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(Micronutrients_UpdateActivity.this, "Successfully Deleted", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
             }
         });
+
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
