@@ -17,7 +17,7 @@ public class MacronutrientsLogicImpl implements MacronutrientsLogic{
 
 
     @Override
-    public boolean addMacronutrients(int protein, int fat, int carbohydrates, int fibre, int salt) {
+    public boolean addMacronutrients(float protein, float fat, float carbohydrates, float fibre, float salt) {
         return macroDB.addMacronutrients(protein, fat, carbohydrates, fibre, salt);
     }
 

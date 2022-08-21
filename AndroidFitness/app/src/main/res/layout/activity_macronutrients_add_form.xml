@@ -13,11 +13,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:ems="10"
-        android:hint="Enter Protein (g)"
+        android:hint="@string/enter_protein_g"
         android:inputType="numberDecimal"
+        android:minHeight="48dp"
+        android:textColorHint="#757575"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/fat_input"
@@ -25,11 +28,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Enter Fat (g)"
+        android:hint="@string/enter_fat_g"
         android:inputType="numberDecimal"
+        android:minHeight="48dp"
+        android:textColorHint="#757575"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/protein_input" />
+        app:layout_constraintTop_toBottomOf="@+id/protein_input"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/carbs_input"
@@ -37,11 +43,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Enter Carbohydrates (g)"
+        android:hint="@string/enter_carbohydrates_g"
         android:inputType="numberDecimal"
+        android:minHeight="48dp"
+        android:textColorHint="#757575"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fat_input" />
+        app:layout_constraintTop_toBottomOf="@+id/fat_input"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/fibre_input"
@@ -49,11 +58,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Enter Fibre (g)"
+        android:hint="@string/enter_fibre_g"
         android:inputType="numberDecimal"
+        android:minHeight="48dp"
+        android:textColorHint="#757575"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carbs_input" />
+        app:layout_constraintTop_toBottomOf="@+id/carbs_input"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/salt_input"
@@ -61,18 +73,21 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Enter Salt (g)"
+        android:hint="@string/enter_salt_g"
         android:inputType="numberDecimal"
+        android:minHeight="48dp"
+        android:textColorHint="#757575"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fibre_input" />
+        app:layout_constraintTop_toBottomOf="@+id/fibre_input"
+        android:importantForAutofill="no" />
 
     <Button
         android:id="@+id/macronutrients_add_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="ADD"
+        android:text="@string/add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/salt_input" />
