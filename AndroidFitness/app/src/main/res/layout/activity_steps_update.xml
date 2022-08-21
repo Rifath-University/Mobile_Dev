@@ -48,25 +48,22 @@
 
     <Button
         android:id="@+id/update_steps_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
-        android:text="Update"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:layout_width="213dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="24dp"
+        android:text="UPDATE"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/calories_input_update" />
 
     <Button
         android:id="@+id/delete_steps_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:text="Delete"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:layout_width="213dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="24dp"
+        android:text="DELETE"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/update_steps_button" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/update_steps_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
