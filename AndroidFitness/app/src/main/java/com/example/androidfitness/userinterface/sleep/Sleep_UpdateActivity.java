@@ -12,25 +12,30 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.androidfitness.R;
-import com.example.androidfitness.datalayer.Sleep_MyDatabaseHelper;
+import com.example.androidfitness.datalayer.sleep.SleepDbImpl;
+import com.example.androidfitness.logic.sleep.SleepLogic;
+import com.example.androidfitness.logic.sleep.SleepLogicImpl;
 
 public class Sleep_UpdateActivity extends AppCompatActivity {
 
     private EditText sleep_date_input_update, sleep_totalSleep_input_update, sleep_deepSleep_input_update;
     private Button sleep_update_button, sleep_delete_button;
     private String id, date, totalSleepUpdate, deepSleepUpdate;
+    private SleepLogic sleepLogic;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sleep_update);
+        sleepLogic = new SleepLogicImpl(this);
 
         sleep_date_input_update = findViewById(R.id.sleep_date_input_update);
         sleep_totalSleep_input_update = findViewById(R.id.totalSleep_input_update);
         sleep_deepSleep_input_update = findViewById(R.id.deepSleep_input_update);
         sleep_update_button = findViewById(R.id.update_sleep_button);
         sleep_delete_button = findViewById(R.id.delete_sleep_button);
-        getAndSetStepIntentData();
+        getAndSetSleepIntentData();
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -40,11 +45,17 @@ public class Sleep_UpdateActivity extends AppCompatActivity {
         sleep_update_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Sleep_MyDatabaseHelper updateSleep = new Sleep_MyDatabaseHelper(Sleep_UpdateActivity.this);
                 date = sleep_date_input_update.getText().toString().trim();
                 totalSleepUpdate = sleep_totalSleep_input_update.getText().toString().trim();
                 deepSleepUpdate = sleep_deepSleep_input_update.getText().toString().trim();
-                updateSleep.updateSleepData(id, date, totalSleepUpdate, deepSleepUpdate);
+                boolean isUpdateSuccess = sleepLogic.updateSleepData(id, date, totalSleepUpdate, deepSleepUpdate);
+
+                if (!isUpdateSuccess) {
+                    Toast.makeText(Sleep_UpdateActivity.this, "Failed to Update Sleep", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(Sleep_UpdateActivity.this, "Updated Sleep Successfully", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
             }
         });
 
@@ -56,7 +67,7 @@ public class Sleep_UpdateActivity extends AppCompatActivity {
         });
     }
 
-    public void getAndSetStepIntentData() {
+    public void getAndSetSleepIntentData() {
         if (getIntent().hasExtra("id") && getIntent().hasExtra("date") &&
                 getIntent().hasExtra("totalSleep") && getIntent().hasExtra("deepSleep")) {
             //Getting data from intent
@@ -82,16 +93,20 @@ public class Sleep_UpdateActivity extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Sleep_MyDatabaseHelper deleteSleepRow = new Sleep_MyDatabaseHelper(Sleep_UpdateActivity.this);
-                deleteSleepRow.deleteRowSleep(id);
-                finish();
+                boolean isDeleteSuccess = sleepLogic.deleteRowSleep(id);
+
+                if (!isDeleteSuccess) {
+                    Toast.makeText(Sleep_UpdateActivity.this, "Failed to delete", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(Sleep_UpdateActivity.this, "Successfully Deleted", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+
             }
         });
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-            }
+            public void onClick(DialogInterface dialog, int which) {}
         });
         builder.create().show();
     }
