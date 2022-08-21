@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.example.androidfitness.R;
 import com.example.androidfitness.logic.steps.StepsLogic;
 import com.example.androidfitness.logic.steps.StepsLogicImpl;
+import com.example.androidfitness.userinterface.micronutrients.MicroInfoDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ import java.util.ArrayList;
 public class Steps_Activity extends AppCompatActivity {
 
     private RecyclerView recyclerView_steps;
-    private FloatingActionButton steps_add_button_to_recycler;
+    private FloatingActionButton steps_add_button_to_recycler, StepsInfoButton;
     private ArrayList<String> steps_id, steps_date, steps_daily, steps_calories;
     private Steps_CustomAdapter _stepsCustomAdapter;
     private StepsLogic stepsLogic;
@@ -55,6 +56,19 @@ public class Steps_Activity extends AppCompatActivity {
         _stepsCustomAdapter = new Steps_CustomAdapter(Steps_Activity.this,this , steps_id, steps_date, steps_daily, steps_calories);
         recyclerView_steps.setAdapter(_stepsCustomAdapter);
         recyclerView_steps.setLayoutManager(new LinearLayoutManager(Steps_Activity.this));
+
+        StepsInfoButton = findViewById(R.id.StepsInfoButton);
+        StepsInfoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                stepsOpenDialog();
+            }
+        });
+    }
+
+    public void stepsOpenDialog() {
+        StepsInfoDialog stepsInfoDialogDialog = new StepsInfoDialog();
+        stepsInfoDialogDialog.show(getSupportFragmentManager(), "Steps Information");
     }
 
     @Override
