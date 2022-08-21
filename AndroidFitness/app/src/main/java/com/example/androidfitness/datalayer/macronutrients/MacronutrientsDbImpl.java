@@ -1,4 +1,4 @@
-package com.example.androidfitness.datalayer;
+package com.example.androidfitness.datalayer.macronutrients;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-public class Macronutrients_MyDatabaseHelper extends SQLiteOpenHelper {
+public class MacronutrientsDbImpl extends SQLiteOpenHelper implements MacronutrientsDB {
     private Context context;
     private static final String DATABASE_NAME = "AndroidFitnessMacronutrients.db";
     private static final int DATABASE_VERSION = 1;
@@ -22,7 +22,7 @@ public class Macronutrients_MyDatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_FIBRE = "fibre";
     private static final String COLUMN_SALT = "salt";
 
-    public Macronutrients_MyDatabaseHelper(@Nullable Context context) {
+    public MacronutrientsDbImpl(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
     }
@@ -45,7 +45,7 @@ public class Macronutrients_MyDatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void addMacronutrients(int protein, int fat, int carbohydrates, int fibre, int salt) {
+    public boolean addMacronutrients(int protein, int fat, int carbohydrates, int fibre, int salt) {
         SQLiteDatabase macroNutrients_db = this.getWritableDatabase();
         ContentValues macroNutrients_cv = new ContentValues();
 
@@ -55,11 +55,7 @@ public class Macronutrients_MyDatabaseHelper extends SQLiteOpenHelper {
         macroNutrients_cv.put(COLUMN_FIBRE, fibre);
         macroNutrients_cv.put(COLUMN_SALT, salt);
         long result = macroNutrients_db.insert(TABLE_NAME, null, macroNutrients_cv);
-        if (result == -1) {
-            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
-        }
+        return (result == -1) ? false : true;
     }
 
     public Cursor macronutrientsReadAllData() {
@@ -73,7 +69,7 @@ public class Macronutrients_MyDatabaseHelper extends SQLiteOpenHelper {
         return macroNutrientsCursor;
     }
 
-    public void updateMacroData(String row_id, String protein, String fat, String carbohydrates, String fibre, String salt) {
+    public boolean updateMacroData(String row_id, String protein, String fat, String carbohydrates, String fibre, String salt) {
         SQLiteDatabase updateMacronutrientsDB = this.getWritableDatabase();
         ContentValues macroNutrientsCV = new ContentValues();
         macroNutrientsCV.put(COLUMN_PROTEIN, protein);
@@ -83,22 +79,19 @@ public class Macronutrients_MyDatabaseHelper extends SQLiteOpenHelper {
         macroNutrientsCV.put(COLUMN_SALT, salt);
 
         long updateMacroResult = updateMacronutrientsDB.update(TABLE_NAME, macroNutrientsCV, "_id=?", new String[]{row_id});
-        if (updateMacroResult == -1) {
-            Toast.makeText(context, "Failed to Update", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(context, "Updated Successfully", Toast.LENGTH_SHORT).show();
-
-        }
+        return (updateMacroResult == 0) ? false : true;
     }
 
-    public void deleteRowMacro(String row_id) {
+    public boolean deleteRowMacro(String row_id) {
         SQLiteDatabase deleteMacronutrientsDB = this.getWritableDatabase();
         long deleteResult = deleteMacronutrientsDB.delete(TABLE_NAME, "_id=?", new String[]{row_id});
-        if (deleteResult == -1) {
-            Toast.makeText(context, "Failed to delete", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(context, "Successfully Deleted", Toast.LENGTH_SHORT).show();
-        }
+        return (deleteResult == 0) ? false : true;
+
+//        if (deleteResult == -1) {
+//            Toast.makeText(context, "Failed to delete", Toast.LENGTH_SHORT).show();
+//        } else {
+//            Toast.makeText(context, "Successfully Deleted", Toast.LENGTH_SHORT).show();
+//        }
     }
 
     public void deleteAllMacroData() {

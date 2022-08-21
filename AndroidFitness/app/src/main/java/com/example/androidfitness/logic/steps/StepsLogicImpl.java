@@ -13,10 +13,12 @@ public class StepsLogicImpl implements StepsLogic {
     private StepsDb stepsDB;
 
     public StepsLogicImpl(@Nullable Context context) {
+
         stepsDB = new StepsDbImpl(context);
     }
 
     public void deleteAllSteps() {
+
         stepsDB.deleteAllSteps();
     }
 
@@ -37,6 +39,7 @@ public class StepsLogicImpl implements StepsLogic {
 
     @Override
     public boolean deleteRowSteps(String row_id) {
+
         return stepsDB.deleteRowSteps(row_id);
     }
 }

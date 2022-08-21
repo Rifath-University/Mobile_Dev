@@ -17,7 +17,9 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.androidfitness.R;
-import com.example.androidfitness.datalayer.Macronutrients_MyDatabaseHelper;
+import com.example.androidfitness.datalayer.macronutrients.MacronutrientsDbImpl;
+import com.example.androidfitness.logic.macronutrients.MacronutrientsLogic;
+import com.example.androidfitness.logic.macronutrients.MacronutrientsLogicImpl;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -26,9 +28,10 @@ public class Macronutrients_Activity extends AppCompatActivity {
 
     private RecyclerView recyclerView_Macronutrients;
     private FloatingActionButton macronutrients_Add_Data_To_List, MacroInfoButton;
-    private Macronutrients_MyDatabaseHelper macroDB;
     private ArrayList<String> macro_id, macro_protein, macro_fat, macro_carbs, macro_fibre, macro_salt;
     private Macronutrients_CustomAdapter macroCustomAdapter;
+    private MacronutrientsLogic macroLogic;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +56,7 @@ public class Macronutrients_Activity extends AppCompatActivity {
             }
         });
 
-        macroDB = new Macronutrients_MyDatabaseHelper(Macronutrients_Activity.this);
+        macroLogic = new MacronutrientsLogicImpl(Macronutrients_Activity.this);
         macro_id = new ArrayList<>();
         macro_protein = new ArrayList<>();
         macro_fat = new ArrayList<>();
@@ -81,7 +84,7 @@ public class Macronutrients_Activity extends AppCompatActivity {
     }
 
     public void storeDataInArrays() {
-        Cursor cursor_macronutrients = macroDB.macronutrientsReadAllData();
+        Cursor cursor_macronutrients = macroLogic.macronutrientsReadAllData();
         if (cursor_macronutrients.getCount() == 0) {
             Toast.makeText(this, "No data", Toast.LENGTH_SHORT).show();
         } else {
@@ -118,8 +121,7 @@ public class Macronutrients_Activity extends AppCompatActivity {
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Macronutrients_MyDatabaseHelper allMacroDB = new Macronutrients_MyDatabaseHelper(Macronutrients_Activity.this);
-                allMacroDB.deleteAllMacroData();
+                macroLogic.deleteAllMacroData();
                 Intent deleteAll = new Intent(Macronutrients_Activity.this, Macronutrients_Activity.class);
                 startActivity(deleteAll);
                 finish();
@@ -127,9 +129,7 @@ public class Macronutrients_Activity extends AppCompatActivity {
         });
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-            }
+            public void onClick(DialogInterface dialog, int which) {}
         });
         builder.create().show();
     }
